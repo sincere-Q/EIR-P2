@@ -249,36 +249,63 @@
         }
 
         .abstract-section {
-            padding-top: 1.5rem;
-            padding-bottom: 3.5rem;
-            background: #ffffff;
+            padding-top: 1.8rem;
+            padding-bottom: 3.8rem;
+            background: #f5f5f7;
         }
 
         .abstract-container {
-            max-width: 900px;
+            max-width: 980px;
             margin: 0 auto;
         }
 
         .abstract-title {
             font-size: 2.7rem;
             font-weight: 800;
-            margin-bottom: 1.7rem;
+            margin-bottom: 1.8rem;
             color: #2b2b2b;
             letter-spacing: -0.03em;
         }
 
+        .abstract-box {
+            max-width: 920px;
+            margin: 0 auto;
+            background: #fcfcff;
+            border: 1px solid #e4e8f0;
+            border-radius: 20px;
+            padding: 2rem 2.4rem;
+            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.06);
+        }
+
         .abstract-content {
-            max-width: 850px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
         .abstract-content p {
-            font-size: 1.25rem;
-            line-height: 1.78;
+            font-size: 1.18rem;
+            line-height: 1.95;
             color: #303030;
             text-align: justify;
-            letter-spacing: 0.005em;
+            margin: 0;
+            letter-spacing: 0.003em;
         }
+
+        @media screen and (max-width: 768px) {
+            .abstract-box {
+                padding: 1.4rem 1.2rem;
+                border-radius: 14px;
+            }
+
+            .abstract-title {
+                font-size: 2.1rem;
+            }
+
+            .abstract-content p {
+                font-size: 1.02rem;
+                line-height: 1.8;
+            }
+        }   
 
         .model-section {
             padding-top: 2.5rem;
@@ -568,14 +595,18 @@
         </div>
     </section>
 
+
+
 <section class="section abstract-section">
     <div class="container abstract-container">
         <h2 class="title has-text-centered abstract-title">Abstract</h2>
 
-        <div class="abstract-content">
-            <p>
-                In complex interactive scenarios, ego planning and the future evolution of the scene are tightly coupled over the prediction horizon. Existing methods often generate the full future ego trajectory from the current observation in a single planning pass. This one-shot formulation does not explicitly model the directional dependence between prediction and planning, which limits the ability of the resulting plans to respond to evolving interactions. To address this problem, this paper proposes EIR-P<sup>2</sup>, a coupled prediction and planning framework. EIR-P<sup>2</sup> maintains an interaction representation as a shared intermediate state and updates it through collaborative decoding, enabling the model to capture the dynamic coupling between traffic-agent prediction and ego trajectory planning. The framework first constructs multi-scale hypergraphs to encode group-wise high-order interactions among traffic agents at different spatial granularities. It then uses an interaction-representation-driven collaborative decoder to support multi-round information exchange between traffic-agent prediction and ego planning. Long&ndash;Short Horizon Planning Queries are further proposed to represent behavioral tendencies at different temporal scales, generate multimodal ego trajectory candidates, and improve planning adaptability in dynamic interactive scenarios. Experiments on the NuPlan and InterPlan benchmarks show that EIR-P<sup>2</sup> achieves better overall performance than existing advanced planning methods and shows strong performance across several representative interactive scenarios, demonstrating its effectiveness and robustness in complex interactive driving environments.
-            </p>
+        <div class="abstract-box">
+            <div class="abstract-content">
+                <p>
+                    In complex interactive scenarios, ego planning and the future evolution of the scene are tightly coupled over the prediction horizon. Existing methods often generate the full future ego trajectory from the current observation in a single planning pass. This one-shot formulation does not explicitly model the directional dependence between prediction and planning, which limits the ability of the resulting plans to respond to evolving interactions. To address this problem, this paper proposes EIR-P<sup>2</sup>, a coupled prediction and planning framework. EIR-P<sup>2</sup> maintains an interaction representation as a shared intermediate state and updates it through collaborative decoding, enabling the model to capture the dynamic coupling between traffic-agent prediction and ego trajectory planning. The framework first constructs multi-scale hypergraphs to encode group-wise high-order interactions among traffic agents at different spatial granularities. It then uses an interaction-representation-driven collaborative decoder to support multi-round information exchange between traffic-agent prediction and ego planning. Long&ndash;Short Horizon Planning Queries are further proposed to represent behavioral tendencies at different temporal scales, generate multimodal ego trajectory candidates, and improve planning adaptability in dynamic interactive scenarios. Experiments on the NuPlan and InterPlan benchmarks show that EIR-P<sup>2</sup> achieves better overall performance than existing advanced planning methods and shows strong performance across several representative interactive scenarios, demonstrating its effectiveness and robustness in complex interactive driving environments.
+                </p>
+            </div>
         </div>
     </div>
 </section>
