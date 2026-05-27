@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="EIR-P2: Evolving Interaction Representations for Coupled Prediction and Planning in Autonomous Driving">
+    <meta property="og:title" content="EIR-P2: Evolving Interaction Representations for Coupled Prediction and Planning in Autonomous Driving" />
+    <meta property="og:description"
+        content="Qualitative scenario-wise visualizations for EIR-P2 in representative interactive driving scenes." />
+    <meta property="og:url" content="https://your-project-page.github.io" />
+    <meta property="og:image" content="media/images/your_banner_image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:title" content="EIR-P2: Evolving Interaction Representations for Coupled Prediction and Planning in Autonomous Driving">
+    <meta name="twitter:description"
+        content="Qualitative scenario-wise visualizations for EIR-P2 in representative interactive driving scenes.">
+    <meta name="twitter:image" content="media/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords"
+        content="EIR-P2, interactive driving, autonomous driving, joint prediction and planning, hypergraph, motion planning, qualitative results">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EIR-P2: Evolving Interaction Representations for Coupled Prediction and Planning in Autonomous Driving</title>
+    <link rel="icon" type="image/x-icon" href="media/images/">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="media/css/bulma.min.css">
+    <link rel="stylesheet" href="media/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="media/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="media/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="media/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="media/js/fontawesome.all.min.js"></script>
+    <script src="media/js/bulma-carousel.min.js"></script>
+    <script src="media/js/bulma-slider.min.js"></script>
+    <script src="media/js/index.js"></script>
+
+    <style>
+        :root {
+            --card-border: #e8e8e8;
+            --muted-text: #5f6368;
+            --soft-bg: #f7f8fb;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Google Sans', 'Noto Sans', Arial, sans-serif;
+        }
+
+        .paper-title {
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+
+
+        }
+
+        .author-placeholder {
+            color: var(--muted-text);
+            font-size: 1.1rem;
+            margin-top: 0.75rem;
+        }
+
+        .teaser video,
+        .scenario-card video {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            background: #111;
+        }
+
+        .section-intro {
+            max-width: 940px;
+            margin: 0 auto 1.75rem auto;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: #363636;
+            text-align: justify;
+        }
+
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .quick-nav a {
+            border: 1px solid #dbdbdb;
+            border-radius: 999px;
+            padding: 0.45rem 1rem;
+            color: #363636;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            background: #fff;
+        }
+
+        .quick-nav a:hover {
+            background: #f2f4f8;
+            color: #111;
+            border-color: #c9ced6;
+        }
+
+        .scenario-section {
+            scroll-margin-top: 2rem;
+        }
+
+        .scenario-heading {
+            margin-bottom: 0.75rem;
+        }
+
+        .scenario-subtitle {
+            max-width: 940px;
+            margin: 0 auto 1.75rem auto;
+            font-size: 1.04rem;
+            color: var(--muted-text);
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .scenario-card {
+            height: 100%;
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 0.9rem;
+            background: #fff;
+            box-shadow: 0 4px 18px rgba(10, 10, 10, 0.055);
+        }
+
+        .scenario-card .case-title {
+            margin-top: 0.85rem;
+            margin-bottom: 0.35rem;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #202124;
+        }
+
+        .scenario-card .case-desc {
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            line-height: 1.65;
+            text-align: left;
+        }
+
+        .note-text {
+            color: #7a7a7a;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        .method-card {
+            height: 100%;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            background: #fff;
+            text-align: left;
+            box-shadow: 0 2px 12px rgba(10, 10, 10, 0.04);
+        }
+
+        .method-card h3 {
+            font-weight: 700;
+            margin-bottom: 0.55rem;
+        }
+
+        .method-card p {
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        .tagline {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            background: #eef2ff;
+            color: #3949ab;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+
+        .title-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .paper-title {
+            line-height: 1.12;
+            letter-spacing: -0.04em;
+            font-size: 3.6rem;
+            font-weight: 800;
+        }
+
+        .title-blue {
+            color: #2f6df6;
+        }
+
+        .no-break {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            .paper-title {
+                font-size: 2.1rem;
+                letter-spacing: -0.02em;
+            }
+        }
+
+
+        .author-info {
+            margin-top: 1.8rem;
+            text-align: center;
+        }
+
+        .authors {
+            font-size: 1.5rem;
+            line-height: 1.35;
+            margin-bottom: 0.35rem;
+            font-weight: 500;
+        }
+
+        .authors a {
+            color: #2f6df6;
+            text-decoration: none;
+        }
+
+        .authors a:hover {
+            text-decoration: underline;
+        }
+
+        .affiliation {
+            font-size: 1.5rem;
+            color: #2b2b2b;
+            line-height: 1.35;
+            font-weight: 400;
+        }
+
+        .title-hero .hero-body {
+            padding-top: 2.6rem;
+            padding-bottom: 1.4rem;
+        }
+
+        .abstract-section {
+            padding-top: 1.5rem;
+            padding-bottom: 3.5rem;
+            background: #ffffff;
+        }
+
+        .abstract-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .abstract-title {
+            font-size: 2.7rem;
+            font-weight: 800;
+            margin-bottom: 1.7rem;
+            color: #2b2b2b;
+            letter-spacing: -0.03em;
+        }
+
+        .abstract-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .abstract-content p {
+            font-size: 1.25rem;
+            line-height: 1.78;
+            color: #303030;
+            text-align: justify;
+            letter-spacing: 0.005em;
+        }
+
+        .model-section {
+            padding-top: 2.5rem;
+            padding-bottom: 4rem;
+            background: #ffffff;
+        }
+
+        .model-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .model-title {
+            font-size: 2.7rem;
+            font-weight: 800;
+            margin-bottom: 1.6rem;
+            color: #2b2b2b;
+            letter-spacing: -0.03em;
+        }
+
+        .model-description {
+            max-width: 860px;
+            margin: 0 auto 1.8rem auto;
+        }
+
+        .model-description p {
+            font-size: 1.18rem;
+            line-height: 1.78;
+            color: #303030;
+            text-align: justify;
+            margin-bottom: 1.2rem;
+        }
+
+        .model-description ul {
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: #303030;
+            padding-left: 1.4rem;
+            margin-top: 0.6rem;
+        }
+
+        .model-description li {
+            margin-bottom: 0.45rem;
+        }
+
+        .model-figure-wrapper {
+            max-width: 2000px;
+            margin: 1.8rem auto 0 auto;
+            text-align: center;
+        }
+
+        .model-figure {
+            width: 100%;
+            max-width: 880px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .figure-caption {
+            margin-top: 0.75rem;
+            font-size: 0.98rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .section-header {
+            width: 100%;
+            background: #f1f1f1;
+            padding: 1.6rem 1rem;
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #3f3f3f;
+            letter-spacing: -0.02em;
+        }
+
+
+
+        .scenario-section {
+            padding-top: 0.8rem;
+            padding-bottom: 0.9rem;
+        }
+
+        .scenario-heading {
+            margin-bottom: 0.25rem !important;
+        }
+
+        .scenario-subtitle {
+            margin-top: 0;
+            margin-bottom: 0.9rem !important;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .scenario-section .columns {
+            margin-top: 0.4rem;
+            margin-bottom: 0;
+        }
+
+        .scenario-section .column {
+            padding-top: 0.45rem;
+            padding-bottom: 0.45rem;
+        }
+
+        .video-only-card {
+            padding: 0.35rem;
+        }
+
+        .video-only-card video {
+            display: block;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .contribution-list {
+            max-width: 850px;
+            margin: 0 auto 1.8rem auto;
+            padding-left: 0;
+            list-style: none;
+            font-size: 1.25rem;
+            line-height: 1.55;
+            color: #303030;
+        }
+
+        .contribution-list li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.75rem;
+            text-align: justify;
+        }
+
+        .contribution-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.25rem;
+            line-height: 1.55;
+            color: #303030;
+        }
+        .table-caption-top {
+            max-width: var(--visual-width);
+            margin: 0 auto 0.8rem auto;
+            font-size: 0.98rem;
+            line-height: 1.5;
+            color: #555;
+            text-align: center;
+        }
+        .table-caption-top {
+            max-width: 2000px;
+            margin: 0 auto 0.8rem auto;
+            font-size: 0.98rem;
+            line-height: 1.5;
+            color: #555;
+            text-align: center;
+        }
+
+        .table-figure-wrapper {
+            max-width: 880px;
+            margin: 2rem auto 2.5rem auto;
+            text-align: center;
+        }
+
+        .table-caption {
+            width: 100%;
+            margin: 0 0 0.65rem 0;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: #333;
+            text-align: center;
+        }
+
+        .table-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 6px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        }
+        .table-figure-wrapper {
+            max-width: 880px;
+            margin: 2rem auto 2.5rem auto;
+            text-align: center;
+        }
+
+        .table-caption {
+            width: 100%;
+            margin: 0 0 0.65rem 0;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: #333;
+            text-align: center;
+        }
+
+        .table-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 6px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .result-subsection {
+            padding-top: 2.2rem;
+            padding-bottom: 1.5rem;
+            background: #ffffff;
+        }
+
+        .result-container {
+            max-width: var(--visual-width);
+            margin: 0 auto;
+        }
+
+        .result-subtitle {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: #2b2b2b;
+            letter-spacing: -0.02em;
+        }
+
+        .result-intro {
+            max-width: 850px;
+            margin: 0 auto 1.8rem auto;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: center;
+        }
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container title-container">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                    <h1 class="title is-1 has-text-centered paper-title">
+                        <span class="title-blue">InterP<sup>2</sup></span>: Multiscale Hypergraph-Enhanced Joint<br>
+                        <span class="title-blue">P</span>rediction and 
+                        <span class="title-blue">P</span>lanning for 
+                        <span class="no-break"><span class="title-blue">Inter</span>active Driving</span>
+                    </h1>
+                    <div class="author-info">
+                        <p class="authors">
+                            <a href="#" target="_blank">Chen Shao<sup>1</sup></a>,
+                            <a href="#" target="_blank">Xuting Duan<sup>1,2</sup></a>,
+                            <a href="#" target="_blank">Qi Wang<sup>1</sup></a>,
+                            <a href="#" target="_blank">Jianshan Zhou<sup>1</sup></a>,
+                            <a href="#" target="_blank">Ling Wang<sup>3</sup></a>,
+                            <a href="#" target="_blank">Daxin Tian<sup>1,2</sup></a>
+                        </p>
+
+                        <p class="affiliation">
+                            <sup>1</sup>School of Transportation Science and Engineering, Beihang University, Beijing, China
+                        </p>
+                        <p class="affiliation">
+                            <sup>2</sup>Zhongguancun Laboratory, Beijing, China
+                        </p>
+                        <p class="affiliation">
+                            <sup>3</sup>Department of Automation, Tsinghua University, Beijing, China
+                        </p>
+                    </div>
+                     
+                     
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="hero teaser"> -->
+        <!-- <div class="container is-max-desktop"> -->
+            <!-- <div class="hero-body"> -->
+                <!-- <video poster="" id="teaser" autoplay controls muted loop playsinline preload="metadata"> -->
+                    <!-- <source src="media/videos/VEDIO2/near/63e48fa44d7c5aa4.mp4" type="video/mp4"> -->
+                <!-- </video> -->
+                <!-- <h2 class="subtitle has-text-centered mt-4"> -->
+                    <!-- InterP<sup>2</sup> performs interaction-aware planning by jointly reasoning about surrounding agents' future evolution and the ego vehicle's feasible motion, enabling safe, smooth, and context-adaptive driving behaviors in complex traffic scenes. -->
+                <!-- </h2> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </section> -->
+<section class="section abstract-section">
+    <div class="container abstract-container">
+        <h2 class="title has-text-centered abstract-title">Abstract</h2>
+
+        <div class="abstract-content">
+            <p>
+            In complex interactive driving scenarios, ego trajectory planning and scene evolution are continuously coupled over the future horizon rather than being independent processes. However, existing methods mostly adopt a one-shot paradigm, where the ego trajectory is generated only once from the current scene context, making it difficult to capture evolving interactions during planning. To address this issue, this paper proposes <strong>InterP<sup>2</sup></strong>, a joint <u>p</u>rediction and <u>p</u>lanning framework for <u>inter</u>active driving. InterP<sup>2</sup> first constructs multi-scale hypergraphs to encode group-wise high-order interactions among traffic agents at different spatial granularities. Then, an Interaction-Representation-Driven Collaborative Decoder is designed to enable multi-round information exchange between traffic-agent prediction and ego planning through a continuously updated interaction representation. In addition, Long--Short Horizon Planning Queries are introduced to capture behavioral tendencies at different temporal scales, improving the flexibility and consistency of planning decisions. Extensive experiments on the nuPlan and interPlan benchmarks demonstrate that InterP<sup>2</sup> outperforms existing advanced planning methods and exhibits strong competitiveness across multiple representative interactive scenarios, validating its effectiveness and robustness in complex interactive driving environments.
+            </p>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="section hero is-light section-banner">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+                <h2 class="title section-banner-title">Model Architecture</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section model-section" id="model-architecture">
+    <div class="container model-container">
+        <div class="model-panel">
+
+            <ul class="contribution-list">
+                <li>
+                    We propose <strong>InterP<sup>2</sup></strong>, a joint prediction and planning framework for interactive driving, to characterize the coupling between traffic-agent behavior prediction and ego trajectory planning.
+                </li>
+                <li>
+                    To capture complex multi-agent interactions, a Multi-scale Hypergraph Interaction Encoding module is designed to model group-wise high-order interactions among traffic agents at different spatial granularities.
+                </li>
+                <li>
+                    An Interaction-Representation-Driven Collaborative Decoder is introduced to support multi-round collaboration between prediction and planning through a continuously updated interaction representation.
+                </li>
+            </ul>
+            
+ 
+            </div>
+
+            <div class="model-figure-wrapper">
+                <img 
+                    src="media/images/overal.png" 
+                    alt="EIR-P2 model architecture" 
+                    class="model-figure"
+                >
+                <p class="figure-caption">
+                    Figure 1: Overall pipeline of InterP<sup>2</sup>.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <section class="section hero is-light section-banner">
+       <div class="container is-max-desktop">
+           <div class="columns is-centered has-text-centered">
+               <div class="column is-full">
+                   <h2 class="title section-banner-title">Experimental Results</h2>
+               </div>
+           </div>
+       </div>
+   </section>
+ 
+
+
+
+
+
+
+
+
+
+
+<section class="section result-subsection" id="main-results">
+    <div class="container result-container">
+        <h2 class="title has-text-centered result-subtitle">Main Results</h2>
+
+        <p class="result-intro">
+
+        </p>
+
+        <!-- Table 1 -->
+        <div class="table-figure-wrapper">
+            <p class="table-caption">
+                Table 1: Performance comparison with various advanced methods on nuPlan. 
+                The best scores are shown in <strong>bold</strong>, and the second-best scores are <u>underlined</u>. 
+                Higher values indicate better performance for all metrics. 
+                * denotes human driving performance, and &dagger; denotes the variant without post-processing.
+            </p>
+
+            <img 
+                src="media/images/nuplan_jieguo.png" 
+                alt="Performance comparison on nuPlan" 
+                class="table-image"
+            >
+        </div>
+
+        <!-- Table 2 -->
+        <div class="table-figure-wrapper">
+            <p class="table-caption">
+                Table 2: Performance comparison with various advanced methods on the interPlan benchmark and scenario-specific scores. 
+                The scenarios include construction-zone avoidance (Constr.), nudging around parked vehicles (Nudge), 
+                and lane changing under low traffic density (LTD), medium traffic density (MTD), and high traffic density (HTD).
+            </p>
+
+            <img 
+                src="media/images/interplan_jieguo.png" 
+                alt="Performance comparison on interPlan" 
+                class="table-image"
+            >
+        </div>
+    </div>
+</section>
+
+
+<section class="section result-subsection" id="qualitative-results">
+    <div class="container result-container">
+        <h2 class="title has-text-centered result-subtitle">Qualitative Results</h2>
+
+        <p class="result-intro">
+
+        </p>
+    </div>
+</section>
+
+    <section class="section scenario-section" id="near">
+        <div class="container">
+            <div class="has-text-centered">
+                <h2 class="title is-4 scenario-heading">Near Multiple Vehicles</h2>
+                <p class="scenario-subtitle has-text-centered">
+                    2× speed
+                </p>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/near/63e48fa44d7c5aa4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/near/93c583b46398560e.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/near/a112ea9f3d2b5d5b.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <section class="section scenario-section" id="lane-change"> -->
+        <!-- <div class="container"> -->
+            <!-- <div class="has-text-centered"> -->
+                <!-- <h2 class="title is-3 scenario-heading">Lane Change</h2> -->
+                <!-- <p class="scenario-subtitle"> -->
+                    <!-- Lane-change maneuvers involve coupled lateral and longitudinal reasoning. The following examples demonstrate how InterP<sup>2</sup> identifies feasible insertion opportunities and coordinates ego motion with the surrounding traffic flow in the target lane. -->
+                <!-- </p> -->
+            <!-- </div> -->
+            <!-- <div class="columns is-multiline"> -->
+                <!-- <div class="column is-4"><div class="scenario-card"><video controls muted loop playsinline preload="metadata"><source src="media/videos/VEDIO2/换道/2f149371d38e5806.mp4" type="video/mp4"></video><p class="case-title">Case LC1: Interaction-aware lane transition</p><p class="case-desc">The ego vehicle performs a smooth lane transition by considering both the leading and following vehicles around the target gap.</p></div></div> -->
+                <!-- <div class="column is-4"><div class="scenario-card"><video controls muted loop playsinline preload="metadata"><source src="media/videos/VEDIO2/换道/33b5947ae3d75a80.mp4" type="video/mp4"></video><p class="case-title">Case LC2: Coordinated gap insertion</p><p class="case-desc">The planned motion jointly adjusts lateral displacement and longitudinal speed, enabling a safe and efficient merge into the desired lane.</p></div></div> -->
+                <!-- <div class="column is-4"><div class="scenario-card"><video controls muted loop playsinline preload="metadata"><source src="media/videos/VEDIO2/换道/95ab9a07a8f55760.mp4" type="video/mp4"></video><p class="case-title">Case LC3: Robust lane-change execution</p><p class="case-desc">The trajectory remains smooth during the lane-change process, showing robustness to continuously changing surrounding-agent states.</p></div></div> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </section> -->
+
+    <section class="section scenario-section" id="lane-change">
+        <div class="container">
+            <div class="has-text-centered">
+                <h2 class="title is-4 scenario-heading">Changing Lane</h2>
+                <p class="scenario-subtitle has-text-centered"></p>
+                    2× speed</p>
+                </p></p>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/换道/2f149371d38e5806.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/换道/33b5947ae3d75a80.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/换道/95ab9a07a8f55760.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section scenario-section" id="roundabout">
+        <div class="container">
+            <div class="has-text-centered">
+                <h2 class="title is-4 scenario-heading">Traversing Pickup Dropoff</h2>
+                <p class="scenario-subtitle has-text-centered">
+                    2× speed
+                </p>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/环岛/74874f782e725aec.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/环岛/c136ba64909b5ffe.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/环岛/f352e2c4378b5ea1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section scenario-section" id="pedestrian">
+        <div class="container">
+            <div class="has-text-centered">
+                <h2 class="title is-4 scenario-heading">Waiting For Pedestrian To Cross</h2>
+                <p class="scenario-subtitle has-text-centered">
+                    2× speed
+                </p>
+            </div>
+        
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/行人交互/159942fd13675580.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/行人交互/af3681f002005504.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/行人交互/dc98be51b7155407.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section scenario-section" id="turning">
+        <div class="container">
+            <div class="has-text-centered">
+                <h2 class="title is-4 scenario-heading">Turning</h2>
+                <p class="scenario-subtitle has-text-centered">
+                    2× speed
+                </p>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/转弯/2c5af3c1152c5e69.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/转弯/5af50221d55658e4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/转弯/80a05e5b3037536a.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/转弯/27fb96d75d4759a2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/转弯/521a9f9977d351da.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="scenario-card video-only-card">
+                        <video autoplay controls muted loop playsinline preload="metadata">
+                            <source src="media/videos/VEDIO2/转弯/f3895453b6c35e51.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ 
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content has-text-centered">
+                        <p>
+                            This page was built using the
+                            <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">
+                                Academic Project Page Template
+                            </a>, which was adopted from the
+                            <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
