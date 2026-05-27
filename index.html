@@ -533,66 +533,53 @@
             <div class="container title-container">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                    <h1 class="title is-1 has-text-centered paper-title">
-                        <span class="title-blue">InterP<sup>2</sup></span>: Multiscale Hypergraph-Enhanced Joint<br>
-                        <span class="title-blue">P</span>rediction and 
-                        <span class="title-blue">P</span>lanning for 
-                        <span class="no-break"><span class="title-blue">Inter</span>active Driving</span>
-                    </h1>
-                    <div class="author-info">
-                        <p class="authors">
-                            <a href="#" target="_blank">Chen Shao<sup>1</sup></a>,
-                            <a href="#" target="_blank">Xuting Duan<sup>1,2</sup></a>,
-                            <a href="#" target="_blank">Qi Wang<sup>1</sup></a>,
-                            <a href="#" target="_blank">Jianshan Zhou<sup>1</sup></a>,
-                            <a href="#" target="_blank">Ling Wang<sup>3</sup></a>,
-                            <a href="#" target="_blank">Daxin Tian<sup>1,2</sup></a>
-                        </p>
+                        <h1 class="title is-1 has-text-centered paper-title">
+                            <span class="title-blue">EIR-P<sup>2</sup></span>: 
+                            <span class="title-blue">E</span>volving 
+                            <span class="title-blue">I</span>nteraction 
+                            <span class="title-blue">R</span>epresentations for Coupled<br>
+                            <span class="title-blue">P</span>rediction and 
+                            <span class="title-blue">P</span>lanning in Autonomous Driving
+                        </h1>
 
-                        <p class="affiliation">
-                            <sup>1</sup>School of Transportation Science and Engineering, Beihang University, Beijing, China
-                        </p>
-                        <p class="affiliation">
-                            <sup>2</sup>Zhongguancun Laboratory, Beijing, China
-                        </p>
-                        <p class="affiliation">
-                            <sup>3</sup>Department of Automation, Tsinghua University, Beijing, China
-                        </p>
-                    </div>
-                     
-                     
-                     
+                        <div class="author-info">
+                            <p class="authors">
+                                <a href="#" target="_blank">Chen Shao<sup>1</sup></a>,
+                                <a href="#" target="_blank">Xuting Duan<sup>1,2</sup></a>,
+                                <a href="#" target="_blank">Qi Wang<sup>1</sup></a>,
+                                <a href="#" target="_blank">Jianshan Zhou<sup>1</sup></a>,
+                                <a href="#" target="_blank">Ling Wang<sup>3</sup></a>,
+                                <a href="#" target="_blank">Daxin Tian<sup>1,2</sup></a>
+                            </p>
+
+                            <p class="affiliation">
+                                <sup>1</sup>School of Transportation Science and Engineering, Beihang University, Beijing, China
+                            </p>
+                            <p class="affiliation">
+                                <sup>2</sup>Zhongguancun Laboratory, Beijing, China
+                            </p>
+                            <p class="affiliation">
+                                <sup>3</sup>Department of Automation, Tsinghua University, Beijing, China
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- <section class="hero teaser"> -->
-        <!-- <div class="container is-max-desktop"> -->
-            <!-- <div class="hero-body"> -->
-                <!-- <video poster="" id="teaser" autoplay controls muted loop playsinline preload="metadata"> -->
-                    <!-- <source src="media/videos/VEDIO2/near/63e48fa44d7c5aa4.mp4" type="video/mp4"> -->
-                <!-- </video> -->
-                <!-- <h2 class="subtitle has-text-centered mt-4"> -->
-                    <!-- InterP<sup>2</sup> performs interaction-aware planning by jointly reasoning about surrounding agents' future evolution and the ego vehicle's feasible motion, enabling safe, smooth, and context-adaptive driving behaviors in complex traffic scenes. -->
-                <!-- </h2> -->
-            <!-- </div> -->
-        <!-- </div> -->
-    <!-- </section> -->
 <section class="section abstract-section">
     <div class="container abstract-container">
         <h2 class="title has-text-centered abstract-title">Abstract</h2>
 
         <div class="abstract-content">
             <p>
-            In complex interactive driving scenarios, ego trajectory planning and scene evolution are continuously coupled over the future horizon rather than being independent processes. However, existing methods mostly adopt a one-shot paradigm, where the ego trajectory is generated only once from the current scene context, making it difficult to capture evolving interactions during planning. To address this issue, this paper proposes <strong>InterP<sup>2</sup></strong>, a joint <u>p</u>rediction and <u>p</u>lanning framework for <u>inter</u>active driving. InterP<sup>2</sup> first constructs multi-scale hypergraphs to encode group-wise high-order interactions among traffic agents at different spatial granularities. Then, an Interaction-Representation-Driven Collaborative Decoder is designed to enable multi-round information exchange between traffic-agent prediction and ego planning through a continuously updated interaction representation. In addition, Long--Short Horizon Planning Queries are introduced to capture behavioral tendencies at different temporal scales, improving the flexibility and consistency of planning decisions. Extensive experiments on the nuPlan and interPlan benchmarks demonstrate that InterP<sup>2</sup> outperforms existing advanced planning methods and exhibits strong competitiveness across multiple representative interactive scenarios, validating its effectiveness and robustness in complex interactive driving environments.
+                In complex interactive scenarios, ego planning and the future evolution of the scene are tightly coupled over the prediction horizon. Existing methods often generate the full future ego trajectory from the current observation in a single planning pass. This one-shot formulation does not explicitly model the directional dependence between prediction and planning, which limits the ability of the resulting plans to respond to evolving interactions. To address this problem, this paper proposes EIR-P<sup>2</sup>, a coupled prediction and planning framework. EIR-P<sup>2</sup> maintains an interaction representation as a shared intermediate state and updates it through collaborative decoding, enabling the model to capture the dynamic coupling between traffic-agent prediction and ego trajectory planning. The framework first constructs multi-scale hypergraphs to encode group-wise high-order interactions among traffic agents at different spatial granularities. It then uses an interaction-representation-driven collaborative decoder to support multi-round information exchange between traffic-agent prediction and ego planning. Long&ndash;Short Horizon Planning Queries are further proposed to represent behavioral tendencies at different temporal scales, generate multimodal ego trajectory candidates, and improve planning adaptability in dynamic interactive scenarios. Experiments on the NuPlan and InterPlan benchmarks show that EIR-P<sup>2</sup> achieves better overall performance than existing advanced planning methods and shows strong performance across several representative interactive scenarios, demonstrating its effectiveness and robustness in complex interactive driving environments.
             </p>
-
-
         </div>
     </div>
 </section>
+
 
 <section class="section hero is-light section-banner">
     <div class="container is-max-desktop">
@@ -608,32 +595,32 @@
     <div class="container model-container">
         <div class="model-panel">
 
+            <p class="section-intro">
+                The main contributions of this paper are summarized as follows:
+            </p>
+
             <ul class="contribution-list">
                 <li>
-                    We propose <strong>InterP<sup>2</sup></strong>, a joint prediction and planning framework for interactive driving, to characterize the coupling between traffic-agent behavior prediction and ego trajectory planning.
+                    We propose <strong>EIR-P<sup>2</sup></strong>, a coupled prediction and planning framework for interactive driving scenarios. It models the coupling between traffic-agent behavior prediction and ego trajectory planning through a continuously evolving interaction representation, rather than treating the two tasks as independent or weakly related.
                 </li>
                 <li>
-                    To capture complex multi-agent interactions, a Multi-scale Hypergraph Interaction Encoding module is designed to model group-wise high-order interactions among traffic agents at different spatial granularities.
+                    We design a Multi-scale Hypergraph Interaction Encoding module to characterize group-wise high-order interactions among traffic agents at different spatial granularities. By constructing dynamic hyperedges over multiple agents, this module captures complex multi-agent interaction structures beyond pairwise relations.
                 </li>
                 <li>
-                    An Interaction-Representation-Driven Collaborative Decoder is introduced to support multi-round collaboration between prediction and planning through a continuously updated interaction representation.
+                    We introduce an Interaction-Representation-Driven Collaborative Decoder with Long&ndash;Short Horizon Planning Queries. The decoder enables multi-round information exchange and collaborative reasoning between prediction and planning, thereby improving the adaptability of ego planning in complex interactive scenarios.
                 </li>
             </ul>
-            
- 
-            </div>
+        </div>
 
-            <div class="model-figure-wrapper">
-                <img 
-                    src="media/images/overal.png" 
-                    alt="EIR-P2 model architecture" 
-                    class="model-figure"
-                >
-                <p class="figure-caption">
-                    Figure 1: Overall pipeline of InterP<sup>2</sup>.
-                </p>
-            </div>
-
+        <div class="model-figure-wrapper">
+            <img 
+                src="media/images/overal.png" 
+                alt="EIR-P2 model architecture" 
+                class="model-figure"
+            >
+            <p class="figure-caption">
+                Figure 1: Overall pipeline of EIR-P<sup>2</sup>.
+            </p>
         </div>
     </div>
 </section>
